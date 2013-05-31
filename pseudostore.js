@@ -77,7 +77,7 @@
       var fileName = path[path.length-1];
       // make directories
       if (path.length>1) this.mkdir(parentDirPath);
-      _cd(this.hierarchy,path.slice(0,-1))[fileName] = {type: this.consts['FILE'], id: id};
+      _cd(this.hierarchy,path.slice(0,-1)).contents[fileName] = {type: this.consts['FILE'], id: id};
     },
 
     mkdir: function(path) {
@@ -86,7 +86,7 @@
       // make directories
       var pwd = this.hierarchy;
       path.forEach(function(segment){
-        if (pwd[segment] === undefined) pwd[segment]={type: self.consts['DIR']};
+        if (pwd[segment] === undefined) pwd[segment]={type: self.consts['DIR'], contents:{}};
         pwd = segment;
       });
     },

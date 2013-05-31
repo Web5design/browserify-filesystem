@@ -1,34 +1,35 @@
 {
   "name": "browserify-filesystem",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Node's fs in yo' browser. Provides a file cache. byodb.",
-  "keywords": [
-    "fs",
-    "filesystem",
-    "browserify"
-  ],
-  "homepage": "https://github.com/kumavis/browserify-filesystem",
-  "bugs": {
-    "url": "https://github.com/kumavis/browserify-filesystem/issues",
+  "main": "index.js",
+  "dependencies": {
+    "browserify": "~1.17.3",
+    "fileliststream": "~0.0.2",
+    "idb-wrapper": "~1.2.0"
   },
-  "license": "MIT",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/kumavis/browserify-filesystem.git"
   },
+  "bugs": {
+    "url": "https://github.com/kumavis/browserify-filesystem/issues"
+  },
+  "keywords": [
+    "browserify",
+    "fs",
+    "filesystem"
+  ],
   "author": {
-    "name":"kumavis",
-    "email":"aaron@kumavis.me",
-    "url": "https://github.com/kumavis"
+    "name" : "kumavis",
+    "email" : "aaron@kumavis.me",
+    "url" : "https://github.com/kumavis"
   },
-  "main": "index.js",
-  "dependencies": {
-    "browserify": "~1.17.2",
-    "fileliststream": "~1.2.11"
-  },
-  "devDependencies": {},
-  "bundledDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "8070fea3fcd214fcfca634ba19b38d8a0e381345"
 }

@@ -1,5 +1,15 @@
 == NOW ==
 
+-improve hierarchy:
+* dont just dump children into dirs, add them to .content
+
+-improve ui
+* update on fs change
+
+== example.js ==
+
+-Add
+
 == fs core ==
 
 -Handle paths, dir, and symlink lookups
