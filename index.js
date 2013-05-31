@@ -93,6 +93,11 @@ fs.unlinkSync = function(path){ notifyStub("unlinkSync"); };
 // fs.utimensatSync -- not actually in fs module (?)
 fs.watch = function(filename, options, listener){ notifyStub("watch"); };
 
+// Process overrides
+process._cwd = "/";
+process.cwd = function () { return this._cwd; };
+process.chdir = function (dir) { this._cwd = dir; };
+
 // Helpers
 
 function notifyStub( method ) { console.log("WARN: stub '"+method+"' called. Callback called if provided") }

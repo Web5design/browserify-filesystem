@@ -1,12 +1,11 @@
 {
   "name": "browserify-filesystem",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Node's fs in yo' browser. Provides a file cache. byodb.",
   "main": "index.js",
   "dependencies": {
     "browserify": "~1.17.3",
-    "fileliststream": "~0.0.2",
-    "idb-wrapper": "~1.2.0"
+    "fileliststream": "~0.0.2"
   },
   "devDependencies": {},
   "scripts": {

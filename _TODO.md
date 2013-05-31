@@ -1,14 +1,21 @@
 == NOW ==
 
--improve hierarchy:
-* dont just dump children into dirs, add them to .content
+-stop rolling your own path stuff silly
+
+-compare to real nodejs fs behaviour
+
+-handle "pizza.txt" and "/pizza.txt"
+* other preprocessors could be added by other packages to handle "~/" and "/*", etc
 
 -improve ui
 * update on fs change
 
+-extend process
+* process.cwd = function () { return '/' };
+* process.chdir = function (dir) {
+
 == example.js ==
 
--Add
 
 == fs core ==
 

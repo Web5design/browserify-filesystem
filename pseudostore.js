@@ -46,7 +46,18 @@
       'DIR':          0,
       'FILE':         1,
       'SYMLINK':      2,
-    }
+    };
+
+    // create root directory
+    this.mkdir("/");
+    // // create a temporary dir
+    // this.mkdir("_root");
+    // // dump dir to var
+    // var root = this.hierarchy["_root"];
+    // // remove dir from hierarchy
+    // delete this.hierarchy["_root"];
+    // // place contents in hierarchy top level
+    // for (var key in root){ this.hierarchy[key] = root[key]; }
 
     // this.openDB();
     this.onStoreReady();
@@ -72,22 +83,25 @@
     },
 
     addToHierarchy: function(path, id) {
-      if (typeof path == "string") path = _splitPathIntoSegments(path);
-      var parentDirPath = path.slice(0,-1);
+      path = normalizePath(path);
+      var parentDirPath = getParentDir(path);
       var fileName = path[path.length-1];
       // make directories
       if (path.length>1) this.mkdir(parentDirPath);
-      _cd(this.hierarchy,path.slice(0,-1)).contents[fileName] = {type: this.consts['FILE'], id: id};
+      _cd(this.hierarchy,parentDirPath).contents[fileName] = {type: this.consts['FILE'], id: id};
     },
 
     mkdir: function(path) {
       self = this;
-      if (typeof path == "string") path = _splitPathIntoSegments(path);
+      path = normalizePath(path);
       // make directories
-      var pwd = this.hierarchy;
+      var pwd = normalizePath(process.cwd());
+      pwd = this.hierarchy;
       path.forEach(function(segment){
-        if (pwd[segment] === undefined) pwd[segment]={type: self.consts['DIR'], contents:{}};
-        pwd = segment;
+        if (pwd[segment] === undefined) {
+          pwd[segment]={type: self.consts['DIR'], contents:{}};
+        }
+        pwd = pwd[segment];
       });
     },
 
@@ -97,11 +111,12 @@
     },
 
     idForPath: function(path) {
-      if (typeof path == "string") path = _splitPathIntoSegments(path);
-      var parentDirPath = path.slice(0,-1);
+      path = normalizePath(path);
+      var parentDirPath = getParentDir(path);
       var fileName = path[path.length-1];
-      var pwd = _cd(this.hierarchy,parentDirPath);
-      if (pwd!==undefined && pwd[fileName]!==undefined) return pwd[fileName].id;
+      var pwd = normalizePath(process.cwd());
+      pwd = _cd(this.hierarchy,parentDirPath);
+      if (pwd!==undefined && pwd.contents[fileName]!==undefined) return pwd.contents[fileName].id;
     },
 
     /*********************
@@ -228,6 +243,27 @@
   };
 
   // helpers
+  function normalizePath(path) {
+    if (typeof path == "string") {
+      if (path[0] !== "/") {
+        // append current directory
+        path = process.cwd() + path;
+      }
+      if (path=="/"){
+        path = [""]
+      } else {
+        path = _splitPathIntoSegments(path);
+      }
+    }
+    return path;
+  };
+
+  function getParentDir(path) {
+    var parentPath = path.slice(0,-1);
+    if (parentPath.length == 0) parentPath = [""];
+    return parentPath;
+  };
+
 
   var _cd = function(pwd,path) {
     if (typeof path == "string") path = _splitPathIntoSegments(path);
