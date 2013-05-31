@@ -1,27 +1,34 @@
 {
-  "name": "filesystem-browserify",
+  "name": "browserify-filesystem",
   "version": "0.0.1",
-  "description": "node's fs in yo' browser",
+  "description": "Node's fs in yo' browser. Provides a file cache. byodb.",
+  "keywords": [
+    "fs",
+    "filesystem",
+    "browserify"
+  ],
+  "homepage": "https://github.com/kumavis/browserify-filesystem",
+  "bugs": {
+    "url": "https://github.com/kumavis/browserify-filesystem/issues",
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kumavis/browserify-filesystem.git"
+  },
+  "author": {
+    "name":"kumavis",
+    "email":"aaron@kumavis.me",
+    "url": "https://github.com/kumavis"
+  },
   "main": "index.js",
   "dependencies": {
     "browserify": "~1.17.2",
-    "fileliststream": "~0.0.1"
+    "fileliststream": "~1.2.11"
   },
   "devDependencies": {},
+  "bundledDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/brianloveswords/filesystem-browserify.git"
-  },
-  "keywords": [
-    "fs",
-    "browserify",
-    "filesystem"
-  ],
-  "author": "Brian J. Brennan",
-  "license": "MIT",
-  "readmeFilename": "README.md",
-  "gitHead": "d890859e9e56aa1369b175d1e80cdaf7fb157b67"
 }

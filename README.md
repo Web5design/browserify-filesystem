@@ -1,3 +1,5 @@
+Shamelessly canabalized from https://github.com/brianloveswords/filesystem-browserify/blob/master/package.json
+
 # filesystem-browser
 
 A (partial) implementation of
