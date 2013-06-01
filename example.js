@@ -1,4 +1,7 @@
 const fs = require('./');
+window._fs = require('fs');
+debugger;
+
 const FileListStream = require('fileliststream');
 
 const logger = {
