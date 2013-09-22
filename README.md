@@ -1,4 +1,4 @@
-Note - not currently functioning
+### Note - under development - not currently functioning
 
 Shamelessly canabalized from https://github.com/brianloveswords/filesystem-browserify/
 
