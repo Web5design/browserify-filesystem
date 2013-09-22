@@ -1,4 +1,6 @@
-Shamelessly canabalized from https://github.com/brianloveswords/filesystem-browserify/blob/master/package.json
+Note - not currently functioning
+
+Shamelessly canabalized from https://github.com/brianloveswords/filesystem-browserify/
 
 # browserify-filesystem
 
